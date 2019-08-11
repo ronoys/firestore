@@ -8,7 +8,6 @@ class App extends Component {
     super();
     this.state = {
       currentItem: '',
-      username: '',
       items: []
     }
     this.handleChange = this.handleChange.bind(this);
@@ -18,18 +17,18 @@ class App extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
+
   }
   handleSubmit(e) {
     e.preventDefault();
     const itemsRef = firebase.database().ref('items');
     const item = {
       title: this.state.currentItem,
-      user: this.state.username
+      
     }
     itemsRef.push(item);
     this.setState({
-      currentItem: '',
-      username: ''
+      currentItem: ''
     });
   }
   componentDidMount() {
@@ -53,21 +52,30 @@ class App extends Component {
     const itemRef = firebase.database().ref(`/items/${itemId}`);
     itemRef.remove();
   }
+
+  removeAllItems(){
+    
+    for (let item in firebase.database().ref('items')) {
+      const itemRef=firebase.database().ref(`/items/${item}`);
+      itemRef.remove()
+    }
+
+  }
   render() {
     return (
       <div className='app'>
         <header>
             <div className="wrapper">
-              <h1>Fun Food Friends</h1>
+              <h1>Chat app</h1>
                              
             </div>
         </header>
         <div className='container'>
           <section className='add-item'>
                 <form onSubmit={this.handleSubmit}>
-                  <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.username} />
-                  <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
-                  <button>Add Item</button>
+                  
+                  <input type="text" name="currentItem" placeholder="Enter text" onChange={this.handleChange} value={this.state.currentItem} />
+                  <button>Enter</button>
                 </form>
           </section>
           <section className='display-item'>
@@ -75,12 +83,19 @@ class App extends Component {
                 <ul>
                   {this.state.items.map((item) => {
                     return (
-                      <li key={item.id}>
-                        <h3>{item.title}</h3>
+                      /*<li key={item.id}>
+                        <strong><p>{item.title}</p></strong>
                         <p>brought by: {item.user}
                           <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
                         </p>
-                      </li>
+                      </li>*/
+                      
+                      <div>
+                      <p>{item.title}</p>
+                      <button onClick={() => this.removeItem(item.id)}>Delete</button>
+                      <br></br>
+                      </div>
+                      
                     )
                   })}
                 </ul>
