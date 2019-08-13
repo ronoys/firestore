@@ -55,10 +55,7 @@ class App extends Component {
 
   removeAllItems(){
     
-    for (let item in firebase.database().ref('items')) {
-      const itemRef=firebase.database().ref(`/items/${item}`);
-      itemRef.remove()
-    }
+    firebase.database().ref().remove();
 
   }
   render() {
@@ -76,6 +73,7 @@ class App extends Component {
                   
                   <input type="text" name="currentItem" placeholder="Enter text" onChange={this.handleChange} value={this.state.currentItem} />
                   <button>Enter</button>
+                  <button onClick={() => this.removeAllItems()}>Delete</button>
                 </form>
           </section>
           <section className='display-item'>
@@ -83,6 +81,7 @@ class App extends Component {
                 <ul>
                   {this.state.items.map((item) => {
                     return (
+
                       /*<li key={item.id}>
                         <strong><p>{item.title}</p></strong>
                         <p>brought by: {item.user}
@@ -92,7 +91,7 @@ class App extends Component {
                       
                       <div>
                       <p>{item.title}</p>
-                      <button onClick={() => this.removeItem(item.id)}>Delete</button>
+                      
                       <br></br>
                       </div>
                       
