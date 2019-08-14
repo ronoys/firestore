@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import firebase from './firebase.js';
-
+import alert from './Alert';
 class App extends Component {
   constructor() {
     super();
@@ -75,6 +75,7 @@ class App extends Component {
                                     
                 </form>
                 <button onClick={() => this.removeAllItems()}>Delete</button>
+                <alert></alert>
           </section>
           <section className='display-item'>
               <div className="wrapper">
