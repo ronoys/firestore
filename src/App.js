@@ -72,9 +72,9 @@ class App extends Component {
                 <form onSubmit={this.handleSubmit}>
                   
                   <input type="text" name="currentItem" placeholder="Enter text" onChange={this.handleChange} value={this.state.currentItem} />
-                  <button>Enter</button>
-                  <button onClick={() => this.removeAllItems()}>Delete</button>
+                                    
                 </form>
+                <button onClick={() => this.removeAllItems()}>Delete</button>
           </section>
           <section className='display-item'>
               <div className="wrapper">
@@ -89,10 +89,9 @@ class App extends Component {
                         </p>
                       </li>*/
                       
-                      <div>
+                      <div class="newStuff">
                       <p>{item.title}</p>
-                      
-                      <br></br>
+                                            
                       </div>
                       
                     )
