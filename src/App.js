@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import './App.css';
 import firebase from './firebase.js';
-import alert from './Alert';
+
+
 class App extends Component {
   constructor() {
     super();
@@ -13,6 +13,7 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value
@@ -61,46 +62,8 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <header>
-            <div className="wrapper">
-              <h1>Chat app</h1>
-                             
-            </div>
-        </header>
-        <div className='container'>
-          <section className='add-item'>
-                <form onSubmit={this.handleSubmit}>
-                  
-                  <input type="text" name="currentItem" placeholder="Enter text" onChange={this.handleChange} value={this.state.currentItem} />
-                                    
-                </form>
-                <button onClick={() => this.removeAllItems()}>Delete</button>
-                <alert></alert>
-          </section>
-          <section className='display-item'>
-              <div className="wrapper">
-                <ul>
-                  {this.state.items.map((item) => {
-                    return (
-
-                      /*<li key={item.id}>
-                        <strong><p>{item.title}</p></strong>
-                        <p>brought by: {item.user}
-                          <button onClick={() => this.removeItem(item.id)}>Remove Item</button>
-                        </p>
-                      </li>*/
-                      
-                      <div class="newStuff">
-                      <p>{item.title}</p>
-                                            
-                      </div>
-                      
-                    )
-                  })}
-                </ul>
-              </div>
-          </section>
-        </div>
+        
+        <p>Hello</p>
       </div>
     );
   }

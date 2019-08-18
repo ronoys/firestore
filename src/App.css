@@ -39,6 +39,7 @@ header i {
 .wrapper {
   max-width: 1100px;
   margin: 0 auto;
+  background-color: rgb(237, 237, 237);
 }
 
 .add-item {
@@ -71,8 +72,8 @@ header i {
 
 .newStuff {
   width: 100%;
-    
   display: block;
+  
 }
 
 input {
