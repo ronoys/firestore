@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import firebase from './firebase.js';
-
+import Name from './Name.js';
 
 class App extends Component {
   constructor() {
@@ -63,7 +63,8 @@ class App extends Component {
     return (
       <div className='app'>
         
-        <p>Hello</p>
+        <header align='center'>Chat Application  </header>
+        <Name></Name>
       </div>
     );
   }
