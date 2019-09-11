@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Paper from '@material-ui/core/Paper';
 import './App.css';
 import firebase from './firebase.js';
-import Hello from './test.js'
 
-class App extends Component {
+
+class Name extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,7 +29,7 @@ class App extends Component {
     }
     itemsRef.push(item);
     this.setState({
-      currentItem: ''
+      currentItem: '' 
     });
   }
   componentDidMount() {
@@ -72,7 +72,7 @@ class App extends Component {
                 </form>
                 <button onClick={() => this.removeAllItems()}>Delete</button>
                 
-                <Hello />    
+                  
 
                 
           </section>
@@ -110,4 +110,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default Name;
